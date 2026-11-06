@@ -44,6 +44,26 @@ img {
   max-width: 100%;
 }
 
+/* The supplied transparent logo includes intentional empty canvas around the
+   artwork. This viewport trims that canvas without modifying the source file. */
+.logo-crop {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 483 / 158;
+  overflow: hidden;
+}
+
+.logo-crop img,
+.intro-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 132.505%;
+  max-width: none;
+  transform: translate(-12.031%, -28.169%);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -164,21 +184,19 @@ a {
 .intro-logo-shell {
   position: relative;
   margin: 22px auto 24px;
+  aspect-ratio: 483 / 158;
   overflow: visible;
-  border-radius: 16px;
-  box-shadow: 0 30px 70px rgba(7, 21, 47, 0.18);
   opacity: 0;
   transform: translateY(12px) scale(0.97);
   animation: logoArrival 500ms 220ms ease forwards;
 }
 
 .intro-logo {
-  width: 100%;
-  border-radius: 16px;
+  height: auto;
 }
 
 .intro-logo-clean {
-  position: relative;
+  position: absolute;
   z-index: 1;
 }
 
@@ -187,7 +205,6 @@ a {
   z-index: 2;
   inset: 0;
   overflow: hidden;
-  border-radius: 16px;
   clip-path: inset(0 0 0 0);
   animation: cleanAway 1.2s 1.15s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
@@ -342,6 +359,8 @@ a {
 }
 
 .brand {
+  position: relative;
+  display: block;
   width: 195px;
 }
 
@@ -644,6 +663,10 @@ h2 {
   font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+.hero-logo-crop {
+  margin: 4px 0 2px;
 }
 
 .shine-line {
@@ -1192,9 +1215,12 @@ h2 {
 }
 
 .footer-brand {
-  padding: 10px;
-  background: var(--white);
-  border-radius: 4px;
+  display: block;
+  width: 210px;
+}
+
+.footer-brand img {
+  filter: brightness(0) invert(1);
 }
 
 .footer-copy p {
@@ -1537,12 +1563,7 @@ h2 {
   }
 
   .intro-logo-shell {
-    border-radius: 10px;
-  }
-
-  .intro-logo,
-  .intro-dirt {
-    border-radius: 10px;
+    width: 100%;
   }
 
   .washer-pass {
